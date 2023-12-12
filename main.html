@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Countdown Timer</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.7.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="main">
+  <p class="minute">Enter Minutes:</p>
+  <br> 
+  <input type="string" id="minutes" min="0" value="0">
+  <div class="inner">
+    <button onclick="togglePlayPause()" id="playPauseBtn"><i class="ri-play-fill"></i></button>
+    <div id="timer">00:01:00</div>
+
+<button onclick="resetTimer()" id="resetBtn" disabled><i class="ri-refresh-fill"></i> Reset</button>
+</div>
+</div>
+<script src="code.js">
+ 
+</script>
+
+</body>
+</html>

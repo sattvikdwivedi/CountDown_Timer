@@ -1,0 +1,54 @@
+
+
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;  
+}
+html,body {
+  font-family: 'Arial', sans-serif;
+  background-color:rgba(54,48,36,255);
+  text-align: center;
+}
+.main{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(236,108,79,255);
+}
+
+#timer {
+  font-size: 36px;
+}
+
+button {
+  font-size: 16px;
+  margin: 5px;
+  padding: 10px;
+  cursor: pointer;
+  color: black;
+  background-color: rgba(236,108,79,255);
+}
+#playPauseBtn{
+  border-radius: 50%;
+  /* font-size: 20px; */
+  
+}
+
+#minutes{
+  font-size: 30px;
+  background-color: transparent;
+  border: 1px solid white;
+}
+.minute{
+  padding-right: 14rem;
+  font-size: 1.2rem;
+
+}
+.inner{
+  display: flex;
+  padding-top: 1.4rem;
+  gap: 1rem ;
+}
