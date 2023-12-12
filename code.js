@@ -2,21 +2,22 @@ let countdown;
 let scdleft;
 let inputValue;
 let pause = true;
+let minutesInput; 
 
 function togglePlayPause() {
-
   if (pause) {
     startTimer();
   } else {
     pauseTimer();
   }
 
-  UpdateState();
+  updateState();
 }
 
 function startTimer() {
-  const minutesInput = document.querySelector('#minutes').value;
-  scdleft = parseInt(minutesInput, 10) * 60;
+  minutesInput = document.querySelector('#minutes');
+  inputValue = minutesInput.value; 
+  scdleft = parseInt(inputValue, 10) * 60;
   if (countdown) {
     clearInterval(countdown);
   }
@@ -25,8 +26,8 @@ function startTimer() {
 
   countdown = setInterval(() => {
     if (!pause) {
-      if(scdleft>0){
-        scdleft=scdleft-1;
+      if (scdleft > 0) {
+        scdleft = scdleft - 1;
         display(scdleft);
       }
       if (scdleft === 0) {
@@ -38,16 +39,6 @@ function startTimer() {
   pause = false;
   document.querySelector('#resetBtn').disabled = false;
   minutesInput.addEventListener('input', handleInputChange);
-}
-function togglePlayPause() {
-
-  if (pause) {
-    startTimer();
-  } else {
-    pauseTimer();
-  }
-
-  UpdateState();
 }
 
 function pauseTimer() {
@@ -64,7 +55,7 @@ function display(seconds) {
   document.querySelector('#timer').innerText = display;
 }
 
-function UpdateState() {
+function updateState() {
   const playPauseBtn = document.querySelector('#playPauseBtn');
   playPauseBtn.innerHTML = pause ? '<i class="ri-play-fill"></i>' : '<i class="ri-pause-line"></i>';
 }
@@ -74,13 +65,11 @@ function resetTimer() {
   document.querySelector('#timer').innerText = '00:00:00';
   document.querySelector('#resetBtn').disabled = true;
   pause = true;
-  UpdateState();
-  const minutesInput = document.querySelector('minutes');
-  minutesInput.removeEventListener('#input', handleInputChange);
+  updateState();
+  minutesInput.removeEventListener('input', handleInputChange);
 }
 
 function handleInputChange() {
-  const minutesInput = document.querySelector('#minutes');
   if (!pause && minutesInput.value !== inputValue) {
     clearInterval(countdown);
     document.querySelector('#timer').innerText = '00:00:00';
